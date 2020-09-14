@@ -45,4 +45,9 @@ public class TeamService {
         }
         return teams;
     }
+
+    public Team updateTeamName(int id, String teamName) {
+        teams.get(id - 1).setName(teamName);
+        return teams.get(id - 1);
+    }
 }
