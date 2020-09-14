@@ -10,7 +10,22 @@ import java.util.List;
 public class StudentService {
     private List<Student> students = new ArrayList<>();
 
+    public StudentService() {
+        students.add(new Student(1, "杨思雨", "female", ""));
+        students.add(new Student(2, "徐慧慧", "female", ""));
+        students.add(new Student(3, "陈思聪", "male", ""));
+        students.add(new Student(4, "王江林", "male", ""));
+        students.add(new Student(5, "王登宇", "male", ""));
+        students.add(new Student(5, "沈乐祺", "male", ""));
+    }
+
     public void addStudents(Student student) {
+        int next_id = students.size() + 1;
+        student.setId(next_id);
         students.add(student);
+    }
+
+    public void delStudent(Integer id) {
+        students.remove(id - 1);
     }
 }
