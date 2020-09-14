@@ -17,7 +17,7 @@ public class StudentService {
         students.add(new Student(3, "陈思聪", "male", ""));
         students.add(new Student(4, "王江林", "male", ""));
         students.add(new Student(5, "王登宇", "male", ""));
-        students.add(new Student(5, "沈乐祺", "male", ""));
+        students.add(new Student(6, "沈乐祺", "male", ""));
     }
 
     public void addStudents(Student student) {
@@ -35,5 +35,9 @@ public class StudentService {
             return students;
         }
         return students.stream().filter(student -> student.getGender().equals(gender)).collect(Collectors.toList());
+    }
+
+    public Student getStudentsById(int id) {
+        return students.get(id - 1);
     }
 }
