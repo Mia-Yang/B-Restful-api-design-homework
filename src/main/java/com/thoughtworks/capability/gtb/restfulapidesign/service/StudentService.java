@@ -40,4 +40,12 @@ public class StudentService {
     public Student getStudentsById(int id) {
         return students.get(id - 1);
     }
+
+    public Student updateStudentInfo(int id, Student studentInfo) {
+        Student student = students.get(id - 1);
+        student.setGender(studentInfo.getGender() == null ? student.getGender():studentInfo.getGender());
+        student.setName(studentInfo.getName() == null ? student.getName() : studentInfo.getName());
+        student.setNote(studentInfo.getNote() == null ? student.getNote() : studentInfo.getNote());
+        return student;
+    }
 }

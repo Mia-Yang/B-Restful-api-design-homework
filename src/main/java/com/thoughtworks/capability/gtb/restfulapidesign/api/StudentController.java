@@ -31,9 +31,14 @@ public class StudentController {
         return ResponseEntity.status(HttpStatus.OK).body(studentService.getStudentsByGender(gender));
     }
 
-    @GetMapping("students/{id}")
+    @GetMapping("/students/{id}")
     public ResponseEntity<Student> getStudentsById(@PathVariable int id) {
         return ResponseEntity.status(HttpStatus.OK).body(studentService.getStudentsById(id));
+    }
+
+    @PatchMapping("/students/{id}")
+    public ResponseEntity<Student> updateStudentInfo(@PathVariable int id, @RequestBody Student studentInfo) {
+        return ResponseEntity.status(HttpStatus.OK).body(studentService.updateStudentInfo(id, studentInfo));
     }
 
 }
