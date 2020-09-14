@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class StudentService {
@@ -27,5 +28,12 @@ public class StudentService {
 
     public void delStudent(Integer id) {
         students.remove(id - 1);
+    }
+
+    public List<Student> getStudentsByGender(String gender) {
+        if (gender == null) {
+            return students;
+        }
+        return students.stream().filter(student -> student.getGender().equals(gender)).collect(Collectors.toList());
     }
 }

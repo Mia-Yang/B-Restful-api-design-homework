@@ -25,4 +25,10 @@ public class StudentController {
         studentService.delStudent(id);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
+
+    @GetMapping("/students")
+    public ResponseEntity<List> getStudentsByGender(@RequestParam(required = false) String gender) {
+        return ResponseEntity.status(HttpStatus.OK).body(studentService.getStudentsByGender(gender));
+    }
+
 }
