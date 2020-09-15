@@ -21,12 +21,12 @@ public class StudentController {
     }
 
     @DeleteMapping("/{id}")
-    @ResponseStatus(HttpStatus.OK)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delStudent(@PathVariable Integer id) {
         studentService.delStudent(id);
     }
 
-    @GetMapping("/students")
+    @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List getStudentsByGender(@RequestParam(required = false) String gender) {
         return studentService.getStudentsByGender(gender);
@@ -38,7 +38,7 @@ public class StudentController {
         return studentService.getStudentsById(id);
     }
 
-    @PatchMapping("/students/{id}")
+    @PatchMapping("/{id}")
     public Student updateStudentInfo(@PathVariable int id, @RequestBody Student studentInfo) {
         return studentService.updateStudentInfo(id, studentInfo);
     }
